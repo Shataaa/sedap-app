@@ -33,6 +33,7 @@ const Forgot = React.lazy(() => import("./pages/auth/Forgot.jsx"));
 const AuthLayout = React.lazy(() => import("./layouts/AuthLayouts.jsx"));
 const MainLayout = React.lazy(() => import("./layouts/MainLayout.jsx"));
 const Loading = React.lazy(() => import("./components/Loading.jsx"));
+const ProductDetail = React.lazy(() => import("./pages/Productdetail"))
 
 export default function App() {
   return (
@@ -42,15 +43,16 @@ export default function App() {
         <Route path="Foods" element={<Unauthorized />} />
         <Route path="Riviews" element={<BadRequest />} />
         <Route path="Orders Detail" element={<Forbidden />} />
+
         <Route element={<MainLayout />}>
           <Route path="User" element={<User />} />
-
+          <Route path="products" element={<Products />} />
+          <Route path="Products/:id" element={<ProductDetail />} />
           <Route path="/" element={<Dashboard />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/customers" element={<Customers />} />
-          <Route path="products" element={<Products />} />
-
         </Route>
+
         <Route element={<AuthLayout />}>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
