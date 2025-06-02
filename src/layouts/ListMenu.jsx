@@ -1,3 +1,4 @@
+import { MdFastfood } from "react-icons/md"; 
 import { CiUser } from "react-icons/ci"; 
 import { Link, NavLink } from "react-router-dom";
 import { RiCupLine } from "react-icons/ri";
@@ -33,6 +34,16 @@ export default function ListMenu(){
                       </span>
                       Dashboard
                     </NavLink>
+                  </li>
+                  <li>
+                      <NavLink
+                              id="menu-4"
+                              to="/products"
+                              className={menuClass}
+                          >
+                              <MdFastfood className="mr-4 text-xl" />
+                              Products
+                      </NavLink>
                   </li>
                   <li>
                     <NavLink id="menu-14" to="User" className={menuClass}>

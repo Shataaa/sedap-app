@@ -16,6 +16,7 @@ import { Routes, Route } from "react-router-dom";
 import { Suspense } from "react";
 
 import React from "react";
+import Products from "./pages/Products.jsx";
 
 const Customers = React.lazy(() => import("./pages/Customers.jsx"));
 const User = React.lazy(() => import("./pages/User.jsx"));
@@ -28,6 +29,7 @@ const Unauthorized = React.lazy(() => import("./pages/Unauthorized.jsx"));
 const Login = React.lazy(() => import("./pages/auth/Login.jsx"));
 const Register = React.lazy(() => import("./pages/auth/Register.jsx"));
 const Forgot = React.lazy(() => import("./pages/auth/Forgot.jsx"));
+// const Products = React.lazy(() => import("./pages/auth/Products.jsx"));
 const AuthLayout = React.lazy(() => import("./layouts/AuthLayouts.jsx"));
 const MainLayout = React.lazy(() => import("./layouts/MainLayout.jsx"));
 const Loading = React.lazy(() => import("./components/Loading.jsx"));
@@ -46,6 +48,8 @@ export default function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/customers" element={<Customers />} />
+          <Route path="products" element={<Products />} />
+
         </Route>
         <Route element={<AuthLayout />}>
           <Route path="/login" element={<Login />} />
