@@ -1,0 +1,21 @@
+import { Link } from "react-router-dom";
+import ErrorPage from "./ErrorPage";
+export default function BadRequest() {
+  return (
+    <ErrorPage
+      link="Back to home →"
+      title="Sedap"
+      title1="400"
+      breadcrump1="You've sent a bad request"
+      breadcrump2="Sorry, we couldn’t find the page you’re looking for"
+    >
+      <h3 className="text-2xl font-semibold mb-2">Page Not Found</h3>
+      <p className="text-white/70 mb-6">
+        Sorry, we couldn’t find the page you’re looking for
+      </p>
+      <Link to="/" className="text-blue-400 hover:underline">
+        Back to home →
+      </Link>
+    </ErrorPage>
+  );
+}

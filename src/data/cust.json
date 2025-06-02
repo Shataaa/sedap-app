@@ -1,0 +1,18 @@
+[
+    { "customerId": "CUST001", "customerName": "John Doe", "email": "john@example.com", "phone": "081234567001", "loyalty": "Gold" },
+    { "customerId": "CUST002", "customerName": "Jane Smith", "email": "jane@example.com", "phone": "081234567002", "loyalty": "Silver" },
+    { "customerId": "CUST003", "customerName": "Michael Scott", "email": "michael@dundermifflin.com", "phone": "081234567003", "loyalty": "Bronze" },
+    { "customerId": "CUST004", "customerName": "Pam Beesly", "email": "pam@example.com", "phone": "081234567004", "loyalty": "Silver" },
+    { "customerId": "CUST005", "customerName": "Jim Halpert", "email": "jim@example.com", "phone": "081234567005", "loyalty": "Gold" },
+    { "customerId": "CUST006", "customerName": "Dwight Schrute", "email": "dwight@example.com", "phone": "081234567006", "loyalty": "Bronze" },
+    { "customerId": "CUST007", "customerName": "Angela Martin", "email": "angela@example.com", "phone": "081234567007", "loyalty": "Silver" },
+    { "customerId": "CUST008", "customerName": "Stanley Hudson", "email": "stanley@example.com", "phone": "081234567008", "loyalty": "Bronze" },
+    { "customerId": "CUST009", "customerName": "Kevin Malone", "email": "kevin@example.com", "phone": "081234567009", "loyalty": "Silver" },
+    { "customerId": "CUST010", "customerName": "Oscar Martinez", "email": "oscar@example.com", "phone": "081234567010", "loyalty": "Gold" },
+    { "customerId": "CUST011", "customerName": "Kelly Kapoor", "email": "kelly@example.com", "phone": "081234567011", "loyalty": "Silver" },
+    { "customerId": "CUST012", "customerName": "Ryan Howard", "email": "ryan@example.com", "phone": "081234567012", "loyalty": "Bronze" },
+    { "customerId": "CUST013", "customerName": "Toby Flenderson", "email": "toby@example.com", "phone": "081234567013", "loyalty": "Bronze" },
+    { "customerId": "CUST014", "customerName": "Phyllis Vance", "email": "phyllis@example.com", "phone": "081234567014", "loyalty": "Silver" },
+    { "customerId": "CUST015", "customerName": "Creed Bratton", "email": "creed@example.com", "phone": "081234567015", "loyalty": "Gold" }
+  ]
+  
