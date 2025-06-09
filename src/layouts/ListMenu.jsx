@@ -46,6 +46,16 @@ export default function ListMenu(){
                       </NavLink>
                   </li>
                   <li>
+                      <NavLink
+                              id="menu-3"
+                              to="/Notes"
+                              className={menuClass}
+                          >
+                              <MdFastfood className="mr-4 text-xl" />
+                              Notes
+                      </NavLink>
+                  </li>
+                  <li>
                     <NavLink id="menu-14" to="User" className={menuClass}>
                       <span className="mr-4 text-xl">
                         <CiUser className="mr-4 text" />
