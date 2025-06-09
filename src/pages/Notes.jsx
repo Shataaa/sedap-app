@@ -1,3 +1,4 @@
+import { AiFillEdit } from "react-icons/ai"; 
 import { notesAPI } from "../services/notesAPI";
 import { useState, useEffect } from "react";
 import AlertBox from "../components/AlertBox";
@@ -16,6 +17,7 @@ export default function Notes() {
     content: "",
     status: "",
   });
+  const [editId, setEditId] = useState(null);
 
   // Ambil data notes saat komponen pertama kali render
   useEffect(() => {
@@ -88,6 +90,34 @@ export default function Notes() {
     }
   };
 
+  const handleEdit = (note) => {
+    setEditId(note.id);
+    setDataForm({
+      title: note.title,
+      content: note.content,
+      status: note.status || "",
+    });
+  };
+
+  const handleUpdate = async (e) => {
+    e.preventDefault();
+    try {
+      setLoading(true);
+      setError("");
+      setSuccess("");
+      await notesAPI.updateNote(editId, dataForm);
+      setSuccess("Catatan berhasil diupdate!");
+      setEditId(null);
+      setDataForm({ title: "", content: "", status: "" });
+      setTimeout(() => setSuccess(""), 3000);
+      loadNotes();
+    } catch (err) {
+      setError(`Terjadi kesalahan: ${err.message}`);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="max-w-2xl mx-auto p-6">
       <div className="mb-6">
@@ -102,7 +132,7 @@ export default function Notes() {
         <h3 className="text-lg font-semibold text-gray-800 mb-4">
           Tambah Catatan Baru
         </h3>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={editId ? handleUpdate : handleSubmit} className="space-y-4">
           <input
             type="text"
             name="title"
@@ -135,8 +165,24 @@ export default function Notes() {
                         transition-all duration-200 shadow-lg"
             disabled={loading}
           >
-            {loading ? "Mohon Tunggu..." : "Tambah Catatan"}
+            {loading
+              ? "Mohon Tunggu..."
+              : editId
+              ? "Update Catatan"
+              : "Tambah Catatan"}
           </button>
+          {editId && (
+            <button
+              type="button"
+              onClick={() => {
+                setEditId(null);
+                setDataForm({ title: "", content: "", status: "" });
+              }}
+              className="ml-2 px-6 py-3 bg-gray-400 text-white rounded-2xl"
+            >
+              Batal Edit
+            </button>
+          )}
         </form>
       </div>
 
@@ -178,12 +224,22 @@ export default function Notes() {
                   </div>
                 </td>
                 <td className="px-6 py-4 max-w-xs">
-                  <div className="truncate text-gray-600">
+                  <div className="flex gap-2 items-center">
+                    <button
+                      onClick={() => handleEdit(note)}
+                      disabled={loading}
+                      className="px-3 py-1 bg-yellow-100 rounded hover:bg-yellow-200 transition-colors"
+                      title="Edit"
+                    >
+                      <AiFillEdit className="text-2xl text-yellow-500" />
+                    </button>
                     <button
                       onClick={() => handleDelete(note.id)}
                       disabled={loading}
+                      className="px-3 py-1 bg-red-100 rounded hover:bg-red-200 transition-colors"
+                      title="Hapus"
                     >
-                      <AiFillDelete className="text-red-400 text-2xl hover:text-red-600 transition-colors" />
+                      <AiFillDelete className="text-2xl text-red-500" />
                     </button>
                   </div>
                 </td>
